@@ -1,0 +1,4 @@
+Pyrogram==2.0.106
+python-dotenv
+yt-dlp
+TgCrypto
