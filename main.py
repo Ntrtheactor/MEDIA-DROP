@@ -6,6 +6,20 @@ from pyrogram.enums import ChatMemberStatus
 from pyrogram.types import ReplyKeyboardMarkup
 import os
 
+from flask import Flask
+from threading import Thread
+
+web = Flask(__name__)
+
+@web.route("/")
+def home():
+    return "MediaDrop Bot Running"
+
+def run_web():
+    web.run(host="0.0.0.0", port=10000)
+
+Thread(target=run_web).start()
+
 os.makedirs("downloads/instagram", exist_ok=True)
 os.makedirs("downloads/youtube", exist_ok=True)
 
