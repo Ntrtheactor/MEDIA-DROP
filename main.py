@@ -266,4 +266,9 @@ async def detect_links(client, message):
     os.remove(file_path)
 
 print("Media Drop Bot Starting...")
-app.run()
+
+try:
+    print("Bot Starting...")
+    app.run()
+except Exception as e:
+    print("ERROR:", e)
