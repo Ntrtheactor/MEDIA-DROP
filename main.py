@@ -4,6 +4,10 @@ from pyrogram.handlers import CallbackQueryHandler
 import sqlite3
 from pyrogram.enums import ChatMemberStatus
 from pyrogram.types import ReplyKeyboardMarkup
+import os
+
+os.makedirs("downloads/instagram", exist_ok=True)
+os.makedirs("downloads/youtube", exist_ok=True)
 
 conn = sqlite3.connect("users.db")
 cursor = conn.cursor()
@@ -260,4 +264,6 @@ async def detect_links(client, message):
         )
 
     os.remove(file_path)
+
+print("Media Drop Bot Starting...")
 app.run()
