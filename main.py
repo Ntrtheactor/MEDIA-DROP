@@ -279,36 +279,7 @@ async def detect_links(client, message):
 
     os.remove(file_path)
 
-    elif "vk.com" in text or "vkvideo.ru" in text:
 
-    await message.reply_text("📥 Downloading VK video...")
-
-    import yt_dlp
-    import os
-
-    try:
-        ydl_opts = {
-            "outtmpl": "downloads/vk/%(id)s.%(ext)s",
-            "quiet": True
-        }
-
-        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-            info = ydl.extract_info(text, download=True)
-            file_path = ydl.prepare_filename(info)
-
-        await message.reply_video(
-            video=file_path,
-            caption=f"✅ {info.get('title', 'VK Video')}"
-        )
-
-        os.remove(file_path)
-
-    except Exception as e:
-        print(e)
-
-        await message.reply_text(
-            "❌ Failed to download VK video."
-        )
 
 print("Media Drop Bot Starting...")
 
